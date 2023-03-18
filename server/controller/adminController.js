@@ -10,7 +10,7 @@ const createToken = (_id) => {
     return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "3d" });
 };
 
-// signup a user
+// add a user
 const signupUser = async (req, res) => {
     const { name, email, password } = req.body
     try {
@@ -25,6 +25,7 @@ const signupUser = async (req, res) => {
     }
 }
 
+//////// edit a user
 
 const editDetails = async (req, res) => {
     // const id = req.params.id;
@@ -45,7 +46,7 @@ const editDetails = async (req, res) => {
     }
 };
 
-////////// delete player
+////////// delete a user
 
 const deleteUser = async (req, res) => {
     const id = req.params.id
@@ -63,6 +64,8 @@ const deleteUser = async (req, res) => {
     }
 }
 
+
+//////// incident creation
 const createIncident = async (req, res) => {
     const { name } = req.body
     try {
@@ -89,6 +92,8 @@ const createIncident = async (req, res) => {
         res.status(500).json({ message: 'Server error.' });
     }
 };
+
+//////// get all tickets
 
 const getAllTickets = async (req, res) => {
     try {
